@@ -1,0 +1,770 @@
+/* === SIMPLE FINAL OVERRIDES === */
+
+/* Кнопки — маджента Kontakt + белый */
+.btn.primary{
+  background:#94408F !important;
+  color:#ffffff !important;
+  border-color: rgba(148,64,143,.55) !important;
+}
+.btn.primary:hover{ background:#7e337a !important; }
+
+/* Подарочная карта — без градиента/золота, ровный фон */
+.gift-border:before{ display:none !important; content:none !important; }
+.gift-glow{
+  box-shadow: 0 22px 54px rgba(27,27,29,.12) !important;
+  border-color: rgba(0,0,0,.08) !important;
+}
+.card-face.gift-glow, .card-face.gift-border{
+  background:#94408F !important;
+  background-image:none !important;
+  color:#ffffff !important;
+}
+.card-face.gift-glow .face-title,
+.card-face.gift-border .face-title,
+.card-face.gift-glow .face-body,
+.card-face.gift-border .face-body{
+  color:#ffffff !important;
+}
+
+/* Чтобы длинные тексты не расползались */
+.face-body{ overflow-wrap:anywhere; }
+
+/* Minimal, clean, spring style */
+:root{
+  --bg:#FFF2F6;
+  --card:#FFFFFF;
+  --text:#1B1B1D;
+  --muted:#6B6B73;
+  --gold:#D4AF37;
+  --mimosa:#FFD400;
+  --tulip:#FF3E8E;
+  --green:#18A35B;
+  --shadow: 0 18px 40px rgba(0,0,0,.08);
+  --radius: 22px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: "Gelogica", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.bg-flowers{
+  z-index: 0;
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 15% 15%, rgba(148,64,143,.24), transparent 62%),
+    radial-gradient(900px 520px at 85% 20%, rgba(148,64,143,.18), transparent 64%),
+    radial-gradient(980px 620px at 45% 85%, rgba(255,255,255,.55), transparent 60%),
+    linear-gradient(135deg, #FFFFFF 0%, #FFFFFF 55%, rgba(148,64,143,.08) 100%);
+}
+.bg-flowers:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1000' viewBox='0 0 1600 1000'%3E%3Cdefs%3E%3Cfilter id='b'%3E%3CfeGaussianBlur stdDeviation='18'/%3E%3C/filter%3E%3CradialGradient id='p1' cx='30%25' cy='25%25' r='55%25'%3E%3Cstop offset='0' stop-color='%2394408F' stop-opacity='.42'/%3E%3Cstop offset='1' stop-color='%2394408F' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='p2' cx='70%25' cy='35%25' r='55%25'%3E%3Cstop offset='0' stop-color='%2394408F' stop-opacity='.28'/%3E%3Cstop offset='1' stop-color='%2394408F' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='w1' cx='50%25' cy='70%25' r='60%25'%3E%3Cstop offset='0' stop-color='%23FFFFFF' stop-opacity='.55'/%3E%3Cstop offset='1' stop-color='%23FFFFFF' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23FFFFFF'/%3E%3Cstop offset='0.55' stop-color='%23FFFFFF'/%3E%3Cstop offset='1' stop-color='%2394408F' stop-opacity='.10'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1600' height='1000' fill='url(%23g)'/%3E%3Cg filter='url(%23b)'%3E%3Cellipse cx='420' cy='260' rx='520' ry='360' fill='url(%23p1)'/%3E%3Cellipse cx='1160' cy='320' rx='560' ry='380' fill='url(%23p2)'/%3E%3Cellipse cx='760' cy='780' rx='820' ry='420' fill='url(%23w1)'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+.app{
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 18px 40px;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  gap: 18px;
+}
+
+.top{
+  width: min(980px, 100%);
+  margin: 16px auto 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 20px;
+  flex-wrap:nowrap;
+  position: relative;
+  z-index: 5;
+}
+
+.brand{ display:flex; gap:12px; align-items:flex-start; flex:0 0 auto; max-height:48px; overflow:hidden; padding-top: 2px; }
+
+.mark{
+  width: 46px; height:46px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(201,162,39,.25), rgba(246,199,0,.22));
+  display:grid; place-items:center;
+  font-weight:800;
+  box-shadow: 0 10px 22px rgba(201,162,39,.15);
+}
+
+.h1{ font-size: 24px; font-weight: 800; letter-spacing: .2px; font-family: "Gelogica", sans-serif; }
+.sub{ color: var(--muted); font-size: 13px; margin-top:2px; }
+
+.stage{
+  flex:1;
+  display:grid;
+  place-items:center;
+}
+
+.screen{
+  width: min(980px, 100%);
+  padding: 26px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(212,175,55,.22);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.row{
+  display:flex;
+  gap: 18px;
+  align-items:stretch;
+  flex-wrap:wrap;
+}
+
+.deck{
+  flex: 1 1 240px;
+  display:grid;
+  place-items:center;
+  padding: 8px;
+}
+
+.card-back .back-text{
+  position:relative;
+  text-align:center;
+  padding: 18px;
+}
+
+.badge{
+  display:inline-flex;
+  gap: 8px;
+  align-items:center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,.24);
+  background: rgba(255,255,255,.7);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.big{
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+.kontakt{
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(27,27,29,.75);
+}
+
+.copy{
+  flex: 2 1 320px;
+  padding: 10px 6px;
+}
+
+.lead{
+  font-size: 19px;
+  color: var(--muted);
+  line-height:1.55;
+}
+
+.actions{
+  display:flex;
+  gap: 10px;
+  flex-wrap:wrap;
+  margin-top: 14px;
+}
+
+.btn{
+  font-size: 18px;
+  padding: 18px 24px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.75);
+  padding: 10px 14px;
+  border-radius: 14px;
+  cursor:pointer;
+  font-weight: 650;
+  transition: transform .05s ease, background .2s ease, border-color .2s ease;
+}
+
+.btn:hover{ background: rgba(255,255,255,.95); border-color: rgba(0,0,0,.16); }
+.btn:active{ transform: scale(.98); }
+
+.btn.primary{
+  border-color: rgba(148,64,143,.55);
+  color: #ffffff;
+  background: #94408F;
+  box-shadow: 0 18px 44px rgba(148,64,143,.22);
+}
+
+.card-face{
+  margin-top: 10px;
+  width: min(620px, 100%);
+  border-radius: 18px;
+  background: var(--card);
+  border: 1px solid rgba(212,175,55,.24);
+  box-shadow: 0 22px 54px rgba(27,27,29,.10);
+  overflow:hidden;
+}
+
+.face-top{
+  padding: 14px 16px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.face-title{
+  font-weight: 850;
+  letter-spacing:.2px;
+}
+
+.spark{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.face-body{
+  padding: 22px;
+  font-size: 19px;
+  white-space:pre-line;
+  line-height:1.5;
+  color: rgba(27,27,29,.92);
+}
+
+.gift-glow{
+  box-shadow: 0 26px 70px rgba(212,175,55,.25), 0 22px 54px rgba(27,27,29,.12);
+  border-color: rgba(201,162,39,.40);
+}
+
+.footer{ display:none; }
+
+.modal::backdrop{
+  background: rgba(0,0,0,.35);
+}
+
+.modal{
+  position: relative;
+  border: none;
+  padding: 0;
+  width: min(680px, calc(100% - 24px));
+  border-radius: 22px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.25);
+}
+
+.modal-card{
+  background: rgba(255,255,255,.96);
+  border-radius: 22px;
+  overflow:hidden;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.modal-title{ font-weight: 850; }
+
+.icon-btn{
+  border:none;
+  background: transparent;
+  cursor:pointer;
+  font-size: 20px;
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+.icon-btn:hover{ background: rgba(0,0,0,.05); }
+
+.modal-body{
+  padding: 14px 16px 6px;
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+.pill{
+  display:inline-flex;
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(246,199,0,.16);
+  border: 1px solid rgba(201,162,39,.35);
+  font-size: 12px;
+}
+
+.small{ color: var(--muted); font-size: 12px; line-height:1.35; }
+
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+label{ display:flex; flex-direction:column; gap: 6px; font-size: 12px; color: rgba(27,27,29,.8); }
+input{
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.85);
+  font-size: 14px;
+}
+input:focus{
+  outline:none;
+  border-color: rgba(201,162,39,.55);
+  box-shadow: 0 0 0 4px rgba(246,199,0,.16);
+}
+
+.full{ grid-column: 1 / -1; }
+
+.modal-actions{
+  padding: 12px 16px 16px;
+  display:flex;
+  justify-content:flex-end;
+  gap: 10px;
+}
+
+@media (max-width: 720px){
+  .top{ flex-direction:column; align-items:flex-start; }
+  
+.logo{
+  height:38px !important;
+  width:auto;
+  max-width:260px;
+  display:block;
+}
+
+@keyframes shimmer{
+  0%{ transform: translateX(-30%) rotate(6deg); opacity:.20; }
+  50%{ transform: translateX(10%) rotate(6deg); opacity:.35; }
+  100%{ transform: translateX(40%) rotate(6deg); opacity:.20; }
+}
+
+.title-right{ text-align:right; flex: 0 0 auto; }
+
+.footer{ display:none; }
+
+.title-right .h1{ font-size: 38px; font-weight: 800; letter-spacing: .6px; white-space: nowrap; line-height: 1.05;  color: rgba(27,27,29,.92); }
+
+.title-right .h1{ font-size: 38px; font-weight: 800; letter-spacing: .6px; white-space: nowrap; line-height: 1.05;  color: rgba(27,27,29,.92); }
+
+}
+
+.hero{
+  width: min(980px, 100%);
+  margin: 0 auto;
+  padding: 40px 18px 10px;
+  display:grid;
+  place-items:center;
+}
+.hero-card{
+  width: min(820px, 100%);
+  border-radius: 28px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(212,175,55,.26);
+  box-shadow: 0 28px 80px rgba(27,27,29,.14);
+  position: relative;
+  overflow:hidden;
+}
+.hero-frame{
+  position:absolute;
+  inset: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(212,175,55,.55);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
+}
+.hero-body{
+  position: relative;
+  padding: 56px 34px 44px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 12px;
+  text-align:center;
+}
+.hero-title{
+    font-size: 40px;
+  letter-spacing: .8px;
+  font-weight: 800;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+@keyframes floaty{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+  100%{ transform: translateY(0); }
+}
+.float{ animation: floaty 6.8s ease-in-out infinite; }
+
+.btn.xl{
+  font-size: 20px;
+  padding: 20px 28px;
+  border-radius: 16px;
+}
+.btn.ghost{
+  background: rgba(255,255,255,.78);
+  border-color: rgba(148,64,143,.25);
+}
+
+.gift-border{ position: relative; }
+.gift-border:before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(90deg, rgba(212,175,55,.15), rgba(212,175,55,.85), rgba(212,175,55,.15));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderShine 3.6s ease-in-out infinite;
+  opacity:.85;
+  pointer-events:none;
+}
+@keyframes borderShine{
+  0%{ filter: brightness(1); transform: translateX(-18%); }
+  50%{ filter: brightness(1.06); transform: translateX(18%); }
+  100%{ filter: brightness(1); transform: translateX(-18%); }
+}
+
+.modal-close{
+  position:absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(148,64,143,.18);
+  background: rgba(255,255,255,.78);
+  cursor:pointer;
+}
+.modal-close:hover{ background: rgba(255,255,255,.95); }
+
+.logo{ filter: none; opacity: 1; }
+
+
+/* ===============================
+   PREMIUM CARD DESIGN v2
+   =============================== */
+
+/* Card base */
+.card-face {
+  border-radius: 20px;
+  padding: 28px;
+  background: linear-gradient(145deg, #ffffff 0%, #faf6fb 100%);
+  border: 1.5px solid rgba(214,178,94,.35);
+  box-shadow: 
+    0 20px 45px rgba(0,0,0,.08),
+    inset 0 0 0 1px rgba(148,64,143,.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform .6s ease, box-shadow .6s ease;
+}
+
+/* Gold border glow */
+.card-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg, #D6B25E, transparent, #D6B25E);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: .7;
+}
+
+/* Subtle light sweep */
+.card-face::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -40%;
+  width: 60%;
+  height: 300%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(25deg);
+  transition: transform 1.2s ease;
+  pointer-events: none;
+}
+
+.card-face:hover::after {
+  transform: translateX(250%) rotate(25deg);
+}
+
+/* Floating animation */
+@keyframes premiumFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+.card-face {
+  animation: premiumFloat 6s ease-in-out infinite;
+}
+
+/* Card title */
+.card-face .face-title {
+  font-size: 20px;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: #1b1b1d;
+  margin-bottom: 14px;
+}
+
+/* Divider line */
+.card-face .divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #D6B25E, transparent);
+  margin: 16px 0 20px;
+}
+
+/* Prediction text */
+.card-face .face-body {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Gift card special style */
+.card-face.gift-glow {
+  background: linear-gradient(145deg, #94408F 0%, #7e337a 100%);
+  color: #fff;
+}
+
+.card-face.gift-glow h3,
+.card-face.gift-glow p {
+  color: #fff;
+}
+
+.card-face.gift-glow::before {
+  background: linear-gradient(135deg, #FFD98E, #D6B25E, #FFD98E);
+  opacity: .9;
+}
+
+.gift-badge {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.35);
+  letter-spacing: .5px;
+}
+
+
+
+
+/* Smooth brand deck back (Kontakt) */
+.card-back{
+  background:
+    radial-gradient(900px 520px at 20% 20%, rgba(255,255,255,.18), transparent 60%),
+    radial-gradient(900px 520px at 80% 70%, rgba(255,255,255,.12), transparent 62%),
+    linear-gradient(135deg, rgba(148,64,143,.92) 0%, rgba(183,106,179,.62) 45%, rgba(255,255,255,.18) 100%);
+  /* If JS replaces background-image with a single URL, prevent tiling */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: 0 22px 56px rgba(0,0,0,.18);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle inner frame (no gold) */
+.card-back:before{
+  content:"";
+  position:absolute;
+  inset: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.22);
+  opacity:.9;
+  pointer-events:none;
+}
+
+/* Soft texture wash */
+.card-back:after{
+  content:"";
+  position:absolute;
+  inset:-30%;
+  background:
+    radial-gradient(closest-side at 35% 40%, rgba(255,255,255,.10), transparent 70%),
+    radial-gradient(closest-side at 70% 65%, rgba(148,64,143,.10), transparent 72%);
+  filter: blur(8px);
+  opacity:.85;
+  pointer-events:none;
+}
+
+
+
+/* === FIX: restore card sizes (deck back) === */
+.deck{
+  width: min(420px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-back{
+  width: min(360px, 100%);
+  aspect-ratio: 3 / 5;
+  height: auto;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Hard guarantee: the back image must never tile */
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+.card-back .back-text{
+  padding: 22px 22px;
+  text-align: center;
+}
+.card-back .back-text .big{
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: .6px;
+}
+@media (max-width: 900px){
+  .deck{ width: 100%; }
+  .card-back{ width: min(320px, 100%); }
+}
+
+
+.spark::before{ position: relative; top: -1px; }
+
+/* === FIX v24: badge icon alignment (emoji baseline) === */
+.spark{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  line-height: 1 !important;
+  font-size: 13px;
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(148,64,143,.18);
+  color: rgba(27,27,29,.75);
+  white-space: nowrap;
+}
+.spark-ico{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  line-height: 1 !important;
+  font-size: 14px;
+  transform: translateY(-0.5px);
+}
+.spark-text{ line-height: 1 !important; }
+
+.card-face.gift {
+  background:#94408F !important;
+  color:#ffffff !important;
+}
+
+.btn.primary:hover{ background:#7e337a; }
+
+.btn.ghost{ border-color: rgba(148,64,143,.45) !important; color:#94408F !important; }
+
+/* Gift card: flat magenta, no gold glow */
+.gift-glow{ box-shadow: 0 22px 54px rgba(27,27,29,.10) !important; border-color: rgba(0,0,0,.06) !important; }
+.gift-border:before{ content:none !important; display:none !important; }
+.card-face.gift-glow, .card-face.gift-border{ background:#94408F !important; background-image:none !important; }
+.card-face.gift-glow .face-title,
+.card-face.gift-glow .face-body,
+.card-face.gift-border .face-title,
+.card-face.gift-border .face-body{ color:#ffffff !important; }
+.card-face.gift-glow .spark,
+.card-face.gift-border .spark{ background: rgba(255,255,255,.18) !important; color:#fff !important; }
+
+/* Long texts: prevent layout jumping */
+.face-body{
+  font-size: clamp(15px, 2.1vw, 19px);
+  overflow-wrap: anywhere;
+  max-height: 320px;
+  overflow: auto;
+  scrollbar-width: thin;
+}
+
+body{
+  background: url("assets/watercolor_bg.jpg") no-repeat center center fixed !important;
+  background-size: cover !important;
+}
+/* === SIMPLE FINAL OVERRIDES === */
+
+/* Кнопки — маджента Kontakt + белый */
+.btn.primary{
+  background:#94408F !important;
+  color:#ffffff !important;
+  border-color: rgba(148,64,143,.55) !important;
+}
+.btn.primary:hover{ background:#7e337a !important; }
+
+/* Подарочная карта — без градиента/золота, ровный фон */
+.gift-border:before{ display:none !important; content:none !important; }
+.gift-glow{
+  box-shadow: 0 22px 54px rgba(27,27,29,.12) !important;
+  border-color: rgba(0,0,0,.08) !important;
+}
+.card-face.gift-glow, .card-face.gift-border{
+  background:#94408F !important;
+  background-image:none !important;
+  color:#ffffff !important;
+}
+.card-face.gift-glow .face-title,
+.card-face.gift-border .face-title,
+.card-face.gift-glow .face-body,
+.card-face.gift-border .face-body{
+  color:#ffffff !important;
+}
+
+/* Чтобы длинные тексты не расползались */
+.face-body{ overflow-wrap:anywhere; }
+
+.sub-big{
+  margin-top:8px;
+  font-size:18px;
+  font-weight:600;
+  text-align:center;
+}
+
